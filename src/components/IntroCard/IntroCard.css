@@ -1,0 +1,199 @@
+.intro-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2.5rem 3.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  font-family: "Caveat", cursive;
+}
+
+.intro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(139, 92, 246, 0.05) 50%,
+    rgba(0, 255, 255, 0.1) 100%
+  );
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.intro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.card-content {
+  position: relative;
+}
+
+.letter-content {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  line-height: 1.6;
+  color: #e2e8f0;
+  font-weight: 400;
+}
+
+.letter-greeting {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 600;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+  letter-spacing: 1px;
+}
+
+.letter-body {
+  margin-bottom: 1.25rem;
+  color: #f1f5f9;
+  font-weight: 400;
+  text-align: justify;
+  text-align-last: left;
+}
+
+.letter-body strong {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.letter-signature {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  font-weight: 600;
+  color: #6366f1;
+}
+
+.letter-signature em {
+  font-style: italic;
+  background: linear-gradient(135deg, #6366f1, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.typing-content {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  line-height: 1.6;
+  color: #f1f5f9;
+  font-weight: 400;
+  text-align: justify;
+  text-align-last: left;
+  min-height: 200px;
+  white-space: pre-wrap;
+}
+
+.typing-content .text-type__cursor {
+  color: #6366f1;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .intro-card {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+    border-radius: 20px;
+  }
+  
+  .letter-content {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .letter-greeting {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .letter-body {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+  
+  .letter-signature {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-card {
+    padding: 1.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 16px;
+  }
+  
+  .letter-content {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .letter-greeting {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+    margin-bottom: 1.25rem;
+  }
+  
+  .letter-body {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  
+  .letter-signature {
+    font-size: 1.1rem;
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .intro-card {
+    padding: 1rem 0.75rem;
+  }
+  
+  .letter-content {
+    font-size: 0.9rem;
+  }
+  
+  .letter-greeting {
+    font-size: clamp(1.5rem, 12vw, 2rem);
+  }
+  
+  .letter-body {
+    font-size: 0.9rem;
+  }
+  
+  .letter-signature {
+    font-size: 1rem;
+  }
+} 

@@ -30,39 +30,32 @@ const BlurText = ({
   overallDelay = 0,
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(true); // Always start as true
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!ref.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(ref.current);
-        }
-      },
-      { threshold, rootMargin }
-    );
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [threshold, rootMargin]);
+    // Trigger animation after a short delay to ensure component is mounted
+    const timer = setTimeout(() => {
+      setInView(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const defaultFrom = useMemo(
     () =>
       direction === 'top'
-        ? { filter: 'blur(10px)', opacity: 0, y: -50 }
-        : { filter: 'blur(10px)', opacity: 0, y: 50 },
+        ? { filter: 'blur(2px)', opacity: 0, y: -20 }
+        : { filter: 'blur(2px)', opacity: 0, y: 20 },
     [direction]
   );
 
   const defaultTo = useMemo(
     () => [
       {
-        filter: 'blur(5px)',
-        opacity: 0.5,
-        y: direction === 'top' ? 5 : -5,
+        filter: 'blur(0.5px)',
+        opacity: 0.8,
+        y: direction === 'top' ? 2 : -2,
       },
       { filter: 'blur(0px)', opacity: 1, y: 0 },
     ],
@@ -100,6 +93,7 @@ const BlurText = ({
             key={index}
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}
+            style={{ filter: 'blur(0px)' }} // Force no blur as fallback
             transition={spanTransition}
             onAnimationComplete={
               index === elements.length - 1 ? onAnimationComplete : undefined

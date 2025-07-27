@@ -36,6 +36,8 @@
 
 .greeting-section {
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 40;
 }
 
 .greeting-line {
@@ -46,6 +48,8 @@
   flex-wrap: nowrap;
   margin-bottom: 2rem;
   white-space: nowrap;
+  position: relative;
+  z-index: 45;
 }
 
 .main-greeting {
@@ -59,8 +63,9 @@
   text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
   letter-spacing: 2px;
   position: relative;
-  z-index: 20;
+  z-index: 50;
   color: #6366f1;
+  display: inline-block;
 }
 
 .time-greeting {
@@ -74,28 +79,17 @@
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
   letter-spacing: 2px;
   position: relative;
-  z-index: 20;
+  z-index: 50;
   color: #00ffff;
+  display: inline-block;
 }
 
 .info-section {
-  margin-top: 2rem;
-}
-
-.info-line {
+  margin-top: 3rem;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  white-space: nowrap;
-}
-
-.name {
-  font-size: clamp(3.5rem, 5vw, 4.5rem);
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0;
+  align-items: center;
 }
 
 .fluid-glass-section {
@@ -129,17 +123,67 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    height: auto;
+    padding: 2rem 0;
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+    min-height: auto;
+  }
+  
   .welcome-content {
     padding: 0 1rem;
   }
   
   .greeting-line {
     gap: 1rem;
+    flex-direction: column;
+    white-space: normal;
   }
   
   .main-greeting,
   .time-greeting {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    letter-spacing: 1px;
+  }
+  
+  .info-section {
+    margin-top: 2rem;
+  }
+  
+  .fluid-glass-section {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 1rem 0;
+  }
+  
+  .hero-content {
+    padding: 0 0.5rem;
+  }
+  
+  .welcome-content {
+    padding: 0 0.5rem;
+  }
+  
+  .greeting-line {
+    gap: 0.5rem;
+  }
+  
+  .main-greeting,
+  .time-greeting {
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: 0.5px;
+  }
+  
+  .info-section {
+    margin-top: 1.5rem;
   }
 }
 

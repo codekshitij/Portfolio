@@ -1,35 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import LightRays from '../LightRays/LightRays';
 import BlurText from '../ui/BlurText/BlurText';
 import useTimeGreeting from '../../hooks/useTimeGreeting';
-import { gsap } from 'gsap';
+import IntroCard from '../IntroCard/IntroCard';
 import './Hero.css';
 
 const Hero = () => {
   const timeGreeting = useTimeGreeting();
-  const helloRef = useRef(null);
-  const greetingRef = useRef(null);
 
-  useEffect(() => {
-    // Slower GSAP animation for the greeting text
-    const tl = gsap.timeline({ delay: 1 });
-    
-    if (helloRef.current) {
-      tl.fromTo(helloRef.current, 
-        { opacity: 0, y: 50, scale: 0.8 },
-        { opacity: 1, y: 0, scale: 1, duration: 2, ease: "power2.out" }
-      );
-    }
-    
-    if (greetingRef.current) {
-      tl.fromTo(greetingRef.current, 
-        { opacity: 0, y: 50, scale: 0.8 },
-        { opacity: 1, y: 0, scale: 1, duration: 2, ease: "power2.out" },
-        "-=1.5"
-      );
-    }
-  }, [timeGreeting]);
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,24 +69,45 @@ const Hero = () => {
         >
           <motion.div variants={itemVariants} className="greeting-section">
             <div className="greeting-line">
-              <h1 ref={helloRef} className="main-greeting">HELLO!</h1>
-              <h2 ref={greetingRef} className="time-greeting">{timeGreeting}</h2>
+              <div className="main-greeting">
+                {"HELLO!".split('').map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      ease: "easeOut",
+                      delay: 0.5 + (index * 0.2)
+                    }}
+                    style={{ display: 'inline-block' }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </div>
+              <div className="time-greeting">
+                {timeGreeting.split('').map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      ease: "easeOut",
+                      delay: 1 + (index * 0.2)
+                    }}
+                    style={{ display: 'inline-block' }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </div>
             </div>
           </motion.div>
 
           <motion.div variants={itemVariants} className="info-section">
-            <div className="info-line">
-              <BlurText
-                text="I'm Kshitij Mishra"
-                delay={100}
-                stepDuration={0.4}
-                overallDelay={1}
-                animateBy="chars"
-                direction="top"
-                onAnimationComplete={handleNameAnimationComplete}
-                className="name"
-              />
-            </div>
+            <IntroCard />
           </motion.div>
         </motion.div>
       </div>
