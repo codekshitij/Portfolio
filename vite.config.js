@@ -17,8 +17,16 @@ export default defineConfig({
         assetFileNames: 'assets/[name]-[hash].[ext]'
       },
     },
+    // Ensure proper module format for GitHub Pages
+    target: 'esnext',
+    minify: 'esbuild',
+    modulePreload: false,
   },
   server: {
     port: 5173,
   },
+  // Ensure proper file extensions
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  }
 })
