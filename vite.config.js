@@ -18,9 +18,11 @@ export default defineConfig({
       },
     },
     // Ensure proper module format for GitHub Pages
-    target: 'esnext',
+    target: 'es2015',
     minify: 'esbuild',
     modulePreload: false,
+    // Force proper file extensions
+    assetsInlineLimit: 0,
   },
   server: {
     port: 5173,
@@ -28,5 +30,9 @@ export default defineConfig({
   // Ensure proper file extensions
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
+  // Optimize for static hosting
+  optimizeDeps: {
+    include: ['react', 'react-dom']
   }
 })
