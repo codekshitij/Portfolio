@@ -14,6 +14,10 @@
     0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   font-family: "Caveat", cursive;
+  /* Allow card to flow naturally */
+  max-height: none;
+  overflow-y: visible;
+}
 }
 
 .intro-card::before {
@@ -27,11 +31,13 @@
     135deg,
     rgba(99, 102, 241, 0.1) 0%,
     rgba(139, 92, 246, 0.05) 50%,
-    rgba(0, 255, 255, 0.1) 100%
+    rgba(0, 255, 255, 0.05) 100%
   );
   border-radius: 24px;
   pointer-events: none;
   z-index: -1;
+  /* Ensure the glow doesn't extend beyond card boundaries */
+  clip-path: inset(0);
 }
 
 .intro-card:hover {
@@ -70,8 +76,10 @@
   margin-bottom: 1.25rem;
   color: #f1f5f9;
   font-weight: 400;
-  text-align: justify;
-  text-align-last: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .letter-body strong {
@@ -100,10 +108,26 @@
   line-height: 1.6;
   color: #f1f5f9;
   font-weight: 400;
-  text-align: justify;
-  text-align-last: left;
+  text-align: left;
   min-height: 200px;
   white-space: pre-wrap;
+  width: 100%;
+}
+
+/* Style for the "Welcome to my page" text */
+.welcome-text {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 auto 2rem auto;
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+  letter-spacing: 1px;
+  display: block;
+  width: 100%;
 }
 
 .typing-content .text-type__cursor {

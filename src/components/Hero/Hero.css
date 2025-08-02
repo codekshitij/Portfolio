@@ -4,12 +4,12 @@
   position: relative;
   min-height: 100vh;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding: 4rem 0 6rem 0;
   overflow: hidden;
 }
 
@@ -21,9 +21,9 @@
   z-index: 10;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .welcome-content {
@@ -32,6 +32,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 10;
+  padding-top: 2rem;
 }
 
 .greeting-section {
@@ -53,7 +54,7 @@
 }
 
 .main-greeting {
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
   -webkit-background-clip: text;
@@ -69,7 +70,7 @@
 }
 
 .time-greeting {
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   background: linear-gradient(135deg, #00ffff, #60a5fa);
   -webkit-background-clip: text;
@@ -85,11 +86,12 @@
 }
 
 .info-section {
-  margin-top: 3rem;
+  margin-top: 4rem;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .fluid-glass-section {

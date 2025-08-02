@@ -13,7 +13,7 @@ const projects = [
     image: "🔬",
     status: "Active",
     year: "2025",
-    link: "https://github.com/codekshitij/arit",
+    link: "https://github.com/codekshitij/ARIT",
     liveLink: "https://arit-demo.com"
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     image: "🏎️",
     status: "Complete",
     year: "2024-2025",
-    link: "https://github.com/codekshitij/f1-fantasy",
+    link: "https://github.com/codekshitij/f1-fantasy-frontend",
     liveLink: "https://f1-fantasy-demo.com"
   },
   {
@@ -37,8 +37,8 @@ const projects = [
     image: "⚽",
     status: "Active",
     year: "2024-Present",
-    link: "https://github.com/codekshitij/stats-pandit",
-    liveLink: "https://stats-pandit.com"
+    link: "https://github.com/codekshitij/StatsPandit",
+    liveLink: "https://statspandit.netlify.app/"
   },
   {
     id: 3,
@@ -49,8 +49,8 @@ const projects = [
     image: "📊",
     status: "Active",
     year: "2024-Present",
-    link: "https://github.com/codekshitij/crux-dashboard",
-    liveLink: "https://crux-demo.com"
+    link: "https://github.com/codekshitij/Veridian",
+    liveLink: "https://veridian-eight.vercel.app/"
   },
   {
     id: 4,
@@ -61,8 +61,8 @@ const projects = [
     image: "🎨",
     status: "Live",
     year: "2024",
-    link: "https://github.com/codekshitij/portfolio",
-    liveLink: "https://kshitijmishra.dev"
+    link: "https://github.com/codekshitij/Portfolio",
+    liveLink: "https://kmishra.me"
   }
 ];
 
@@ -133,24 +133,6 @@ const Projects = () => {
                 <p className="project-description-detailed">
                   {projects[activeTab].description}
                 </p>
-
-                <div className="project-tech-section">
-                  <h4>Technologies & Features</h4>
-                  <div className="tech-grid-showcase">
-                    {projects[activeTab].technologies.map((tech, index) => (
-                      <motion.span
-                        key={tech}
-                        className="tech-item-showcase"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.05 * index, duration: 0.3 }}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
 
                 <div className="project-actions-section">
                   <motion.a
@@ -244,41 +226,49 @@ const Projects = () => {
                       </div>
 
                       <div className="browser-page-content">
-                        <div className="page-header">
-                          <div className="page-icon">{project.image}</div>
-                          <h4 className="page-title">{project.shortName}</h4>
+                        {/* Project Name - Large and Prominent */}
+                        <div className="project-name-section">
+                          <div className="project-icon-large">{project.image}</div>
+                          <h3 className="project-name-large">{project.name}</h3>
                         </div>
 
-                        <div className="page-details">
-                          <div className="detail-item">
-                            <span className="detail-label">Status:</span>
-                            <span className={`detail-value ${project.status.toLowerCase()}`}>
+                        {/* Tech Stack - Highlighted */}
+                        <div className="tech-stack-section">
+                          <h4 className="tech-stack-title">Tech Stack</h4>
+                          <div className="tech-stack-grid">
+                            {project.technologies.map(tech => (
+                              <span key={tech} className="tech-stack-item">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Quick Info */}
+                        <div className="quick-info-section">
+                          <div className="info-item">
+                            <span className="info-label">Status:</span>
+                            <span className={`info-value status-${project.status.toLowerCase()}`}>
                               {project.status}
                             </span>
                           </div>
-                          <div className="detail-item">
-                            <span className="detail-label">Year:</span>
-                            <span className="detail-value">{project.year}</span>
+                          <div className="info-item">
+                            <span className="info-label">Year:</span>
+                            <span className="info-value">{project.year}</span>
                           </div>
                         </div>
 
-                        <div className="page-tech-stack">
-                          {project.technologies.slice(0, 4).map(tech => (
-                            <span key={tech} className="tech-chip">{tech}</span>
-                          ))}
-                          {project.technologies.length > 4 && (
-                            <span className="tech-more">+{project.technologies.length - 4}</span>
-                          )}
-                        </div>
-
-                        <div className="page-actions">
+                        {/* Action Buttons */}
+                        <div className="card-actions">
                           <a href={project.link} target="_blank" rel="noopener noreferrer" 
-                             onClick={(e) => e.stopPropagation()} className="page-action-btn">
-                            Code
+                             onClick={(e) => e.stopPropagation()} className="card-action-btn code-btn">
+                            <span>📋</span>
+                            View Code
                           </a>
                           <a href={project.liveLink} target="_blank" rel="noopener noreferrer"
-                             onClick={(e) => e.stopPropagation()} className="page-action-btn">
-                            Demo
+                             onClick={(e) => e.stopPropagation()} className="card-action-btn demo-btn">
+                            <span>🚀</span>
+                            Live Demo
                           </a>
                         </div>
                       </div>
@@ -292,6 +282,6 @@ const Projects = () => {
       </div>
     </section>
   );
-};
-
+  };
+  
 export default Projects;

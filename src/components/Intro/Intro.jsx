@@ -66,7 +66,7 @@ const Intro = () => {
       title: "Software Engineer Intern",
       company: "Terrace",
       period: "May 2025 – Aug 2025",
-      location: "Remote",
+      location: "Atlanta, Georgia",
       points: [
         "Integrated QuickBooks API with React Native platform for agricultural businesses",
         "Designed comprehensive API system with modular plugin architecture",
@@ -157,72 +157,98 @@ const Intro = () => {
               <div className="hobbies-card">
                 <h3 className="section-title">Hobbies & Interests</h3>
                 
-                <div className="hobbies-grid">
-                  <motion.div 
-                    className="hobby-item"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <span className="hobby-icon">🏏</span>
-                    <span className="hobby-text">Cricket</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="hobby-item"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <span className="hobby-icon">💻</span>
-                    <span className="hobby-text">Coding</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="hobby-item"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <span className="hobby-icon">🎮</span>
-                    <span className="hobby-text">Gaming</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="hobby-item"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <span className="hobby-icon">📚</span>
-                    <span className="hobby-text">Reading</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="hobby-item"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    <span className="hobby-icon">🎵</span>
-                    <span className="hobby-text">Music</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="hobby-item"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    <span className="hobby-icon">✈️</span>
-                    <span className="hobby-text">Travel</span>
-                  </motion.div>
+                <div className="hobbies-container">
+                  <div className="hobbies-grid">
+                    <motion.div 
+                      className="hobby-item"
+                      whileHover={{ scale: 1.05, y: -8, rotateY: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1, duration: 0.6 }}
+                    >
+                      <div className="hobby-icon-container">
+                        <span className="hobby-icon">🏏</span>
+                        <div className="hobby-glow"></div>
+                      </div>
+                      <span className="hobby-text">Cricket</span>
+                      <span className="hobby-description">Passionate about the sport</span>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="hobby-item"
+                      whileHover={{ scale: 1.05, y: -8, rotateY: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                    >
+                      <div className="hobby-icon-container">
+                        <span className="hobby-icon">💻</span>
+                        <div className="hobby-glow"></div>
+                      </div>
+                      <span className="hobby-text">Coding</span>
+                      <span className="hobby-description">Building amazing projects</span>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="hobby-item"
+                      whileHover={{ scale: 1.05, y: -8, rotateY: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.6 }}
+                    >
+                      <div className="hobby-icon-container">
+                        <span className="hobby-icon">🎮</span>
+                        <div className="hobby-glow"></div>
+                      </div>
+                      <span className="hobby-text">Gaming</span>
+                      <span className="hobby-description">Strategic thinking</span>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="hobby-item"
+                      whileHover={{ scale: 1.05, y: -8, rotateY: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.6 }}
+                    >
+                      <div className="hobby-icon-container">
+                        <span className="hobby-icon">🏎️</span>
+                        <div className="hobby-glow"></div>
+                      </div>
+                      <span className="hobby-text">Racing</span>
+                      <span className="hobby-description">Speed & precision</span>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="hobby-item"
+                      whileHover={{ scale: 1.05, y: -8, rotateY: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5, duration: 0.6 }}
+                    >
+                      <div className="hobby-icon-container">
+                        <span className="hobby-icon">🎵</span>
+                        <div className="hobby-glow"></div>
+                      </div>
+                      <span className="hobby-text">Music</span>
+                      <span className="hobby-description">Creative expression</span>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="hobby-item"
+                      whileHover={{ scale: 1.05, y: -8, rotateY: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.6, duration: 0.6 }}
+                    >
+                      <div className="hobby-icon-container">
+                        <span className="hobby-icon">✈️</span>
+                        <div className="hobby-glow"></div>
+                      </div>
+                      <span className="hobby-text">Travel</span>
+                      <span className="hobby-description">Exploring new places</span>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>
