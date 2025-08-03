@@ -26,6 +26,10 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    // Ensure proper MIME types during development
+    mimeTypes: {
+      'application/javascript': ['js', 'jsx']
+    }
   },
   // Ensure proper file extensions
   resolve: {
