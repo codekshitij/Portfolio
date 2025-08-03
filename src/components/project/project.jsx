@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import CardSwap, { Card } from '../CardSwap/CardSwap';
+import ProjectsMobile from './ProjectsMobile';
 import './project.css';
 
 const projects = [
@@ -26,7 +28,7 @@ const projects = [
     status: "Complete",
     year: "2024-2025",
     link: "https://github.com/codekshitij/f1-fantasy-frontend",
-    liveLink: "https://f1-fantasy-demo.com"
+    liveLink: "https://f1-dream5.vercel.app/"
   },
   {
     id: 2,
@@ -69,10 +71,25 @@ const projects = [
 const Projects = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Render mobile component for screens <= 768px
+  if (isMobile) {
+    return <ProjectsMobile />;
+  }
 
   const handleCardChange = (index) => {
     setActiveTab(index);
@@ -189,16 +206,16 @@ const Projects = () => {
           >
             <div style={{ height: '800px', position: 'relative' }}>
               <CardSwap
-                width={700}
-                height={600}
-                cardDistance={80}
-                verticalDistance={90}
+                width={isMobile ? 400 : 700}
+                height={isMobile ? 500 : 600}
+                cardDistance={isMobile ? 40 : 80}
+                verticalDistance={isMobile ? 50 : 90}
                 delay={8000} // Increased to 8 seconds
                 pauseOnHover={true}
                 onCardChange={handleCardChange}
                 onCardClick={handleCardClick}
               >
-                {projects.map((project, index) => (
+                {projects.map((project) => (
                   <Card key={project.id} className="browser-project-card">
                     {/* Browser Tab Header */}
                     <div className="browser-tab-header">

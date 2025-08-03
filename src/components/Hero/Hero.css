@@ -72,16 +72,12 @@
 .time-greeting {
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #00ffff, #60a5fa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   margin: 0;
-  text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
   letter-spacing: 2px;
   position: relative;
   z-index: 50;
-  color: #00ffff;
   display: inline-block;
 }
 
@@ -128,16 +124,18 @@
   .hero {
     min-height: 100vh;
     height: auto;
-    padding: 2rem 0;
+    padding: 5rem 0 2rem 0; /* Added top padding for fixed navbar */
   }
   
   .hero-content {
     padding: 0 1rem;
     min-height: auto;
+    padding-top: 2rem; /* Additional top padding */
   }
   
   .welcome-content {
     padding: 0 1rem;
+    padding-top: 1rem; /* Extra top padding */
   }
   
   .greeting-line {
@@ -163,15 +161,17 @@
 
 @media (max-width: 480px) {
   .hero {
-    padding: 1rem 0;
+    padding: 4rem 0 1rem 0; /* Added top padding for fixed navbar */
   }
   
   .hero-content {
     padding: 0 0.5rem;
+    padding-top: 1.5rem; /* Additional top padding */
   }
   
   .welcome-content {
     padding: 0 0.5rem;
+    padding-top: 0.5rem; /* Extra top padding */
   }
   
   .greeting-line {

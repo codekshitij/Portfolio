@@ -1,16 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import Confetti from 'react-confetti';
 import './ThankYou.css';
 
 const ThankYou = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setShowConfetti(true);
+          // Stop confetti after 5 seconds
+          setTimeout(() => setShowConfetti(false), 5000);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
   return (
-    <section className="thank-you-section">
+    <section className="thank-you-section" ref={sectionRef}>
+      {showConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          recycle={false}
+          numberOfPieces={200}
+          colors={['#3b82f6', '#2563eb', '#1d4ed8', '#10b981', '#8b5cf6', '#f59e0b']}
+        />
+      )}
       <div className="thank-you-container">
         <motion.div
           className="thank-you-content"

@@ -49,7 +49,7 @@ const Navigation = () => {
           whileTap={{ scale: 0.95 }}
         >
           <div className="logo-icon">KM</div>
-          <span className="logo-text">Kshitij</span>
+          <span className="logo-text">Kshitij Mishra</span>
         </motion.div>
 
         <div className="nav-links">

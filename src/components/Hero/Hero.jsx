@@ -12,7 +12,7 @@ const Hero = () => {
       <div style={{ width: '100%', height: '100vh', position: 'absolute', top: 0, left: 0 }}>
         <LightRays
           raysOrigin="top-center"
-          raysColor="#00ffff"
+          raysColor="#3b82f6"
           raysSpeed={1.5}
           lightSpread={0.8}
           rayLength={1.2}
