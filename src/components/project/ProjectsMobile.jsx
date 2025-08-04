@@ -25,7 +25,7 @@ const projects = [
     status: "Complete",
     year: "2024-2025",
     link: "https://github.com/codekshitij/f1-fantasy-frontend",
-    liveLink: "https://f1-fantasy-demo.com"
+    liveLink: "https://f1-dream5.vercel.app/"
   },
   {
     id: 2,
