@@ -36,7 +36,7 @@ const ThankYou = () => {
   }, []);
 
   return (
-    <section className="thank-you-section" ref={sectionRef}>
+    <section className="thank-you-section" ref={sectionRef} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       {showConfetti && (
         <Confetti
           width={window.innerWidth}
@@ -46,43 +46,36 @@ const ThankYou = () => {
           colors={['#3b82f6', '#2563eb', '#1d4ed8', '#10b981', '#8b5cf6', '#f59e0b']}
         />
       )}
-      <div className="thank-you-container">
-        <motion.div
-          className="thank-you-content"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <motion.h1
-            className="thank-you-title"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -50 }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-          >
-            Thank You!
-          </motion.h1>
-          
-          <motion.p
-            className="thank-you-message"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
-            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-          >
-            Thanks for exploring my portfolio!
-          </motion.p>
-          
-          <motion.div
-            className="thank-you-emoji"
-            initial={{ opacity: 0, rotate: -180 }}
-            animate={{ opacity: isVisible ? 1 : 0, rotate: isVisible ? 0 : -180 }}
-            transition={{ duration: 1.2, delay: 0.9, ease: "easeOut" }}
-          >
-            🎉
-          </motion.div>
-        </motion.div>
-      </div>
+      <motion.h1
+        className="thank-you-title"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -50 }}
+        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        style={{ color: '#000' }}
+      >
+        Thank You!
+      </motion.h1>
+      
+      <motion.p
+        className="thank-you-message"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+        transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+        style={{ color: '#000' }}
+      >
+        Thanks for exploring my portfolio!
+      </motion.p>
+      
+      <motion.div
+        className="thank-you-emoji"
+        initial={{ opacity: 0, rotate: -180 }}
+        animate={{ opacity: isVisible ? 1 : 0, rotate: isVisible ? 0 : -180 }}
+        transition={{ duration: 1.2, delay: 0.9, ease: "easeOut" }}
+      >
+        🎉
+      </motion.div>
     </section>
   );
 };
 
-export default ThankYou; 
+export default ThankYou;
